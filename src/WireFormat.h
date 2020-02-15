@@ -130,7 +130,8 @@ enum Opcode {
     TX_REQUEST_ABORT            = 78,
     TX_HINT_FAILED              = 79,
     ECHO                        = 80,
-    ILLEGAL_RPC_TYPE            = 81, // 1 + the highest legitimate Opcode
+    ILLEGAL_RPC_TYPE            = 81,
+    OPEN_WHISK_CALL             = 82// 1 + the highest legitimate Opcode
 };
 
 /**
@@ -1910,7 +1911,20 @@ struct UpdateServerList {
                                       // request.
     } __attribute__((packed));
 };
+struct OpenWhiskCall{
+    static const Opcode opcode=Opcode::OPEN_WHISK_CALL;
+    static const ServiceType service=MASTER_SERVICE;
+    struct Request{
+        RequestCommon common;
 
+    } __attribute__((packed));
+
+    struct Response{
+        ResponseCommon common;
+        uint64_t tableId;
+    } __attribute((packed));
+
+};
 struct VerifyMembership {
     static const Opcode opcode = VERIFY_MEMBERSHIP;
     static const ServiceType service = COORDINATOR_SERVICE;
