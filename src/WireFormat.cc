@@ -123,6 +123,7 @@ opcodeSymbol(uint32_t opcode)
         case TX_HINT_FAILED:               return "TX_HINT_FAILED";
         case ECHO:                         return "ECHO";
         case ILLEGAL_RPC_TYPE:             return "ILLEGAL_RPC_TYPE";
+        case OPEN_WHISK_CALL:              return "OPEN_WHISK_CALL";
     }
 
     // Never heard of this RPC; return the numeric value. The shared buffer

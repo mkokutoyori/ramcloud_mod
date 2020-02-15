@@ -164,7 +164,7 @@ class RamCloud {
     void write(uint64_t tableId, uint8_t numKeys, KeyInfo *keyInfo,
             const char* value, const RejectRules* rejectRules = NULL,
             uint64_t* version = NULL, bool async = false);
-
+    void openwhiskcall();
     void poll();
     explicit RamCloud(CommandLineOptions* options);
     explicit RamCloud(Context* context);

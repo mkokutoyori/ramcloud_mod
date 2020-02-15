@@ -14,7 +14,7 @@
  */
 
 #include <stdarg.h>
-
+#include <iostream>
 #include "RamCloud.h"
 #include "ClientLeaseAgent.h"
 #include "ClientTransactionManager.h"
@@ -139,6 +139,9 @@ RamCloud::~RamCloud()
  * This method will not block; it checks for interesting events that may have
  * occurred, but doesn't wait for them to occur.
  */
+ void RamCloud::openwhiskcall() {
+        fprintf(stdout,"Pour l'instant notre service ne fais pas grand chose");
+ }
 void
 RamCloud::poll()
 {

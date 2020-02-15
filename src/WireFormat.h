@@ -1916,7 +1916,7 @@ struct OpenWhiskCall{
     static const ServiceType service=MASTER_SERVICE;
     struct Request{
         RequestCommon common;
-
+        uint64_t serverId;
     } __attribute__((packed));
 
     struct Response{

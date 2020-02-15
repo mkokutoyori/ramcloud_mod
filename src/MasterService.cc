@@ -263,6 +263,9 @@ MasterService::dispatch(WireFormat::Opcode opcode, Rpc* rpc)
             callHandler<WireFormat::Recover, MasterService,
                         &MasterService::recover>(rpc);
             break;
+        case WireFormat::OpenWhiskCall::opcode:
+            callHandler<WireFormat::HINT_SERVER_CRASHED,MasterService,
+                        &MasterService::openwhiskcall>(rpc)
         default:
             prepareErrorResponse(rpc->replyPayload,
                                  STATUS_UNIMPLEMENTED_REQUEST);
@@ -4009,3 +4012,8 @@ MasterService::recover(const WireFormat::Recover::Request* reqHdr,
 }
 
 } // namespace RAMCloud
+
+void MasterService::openwhiskcall(const WireFormat::Openwhisk::Request* request,
+WireFormat::Openwhiskcall::Response* response,RPC* rpc){
+    std::cout << "Pour l'instant notre service ne fait pas grand chose"<< std::endl;
+}
